@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AUH Bed Manager</title>
 
 <style>
-
 body{
     margin:0;
     padding:20px;
@@ -40,7 +38,6 @@ header{
     color:green;
     font-weight:bold;
 }
-
 </style>
 </head>
 
@@ -51,32 +48,31 @@ header{
 <p>University Hospital Aleppo</p>
 </header>
 
-<div class="grid" id="wardsContainer"></div>
+<div class="grid">
 
-<script type="module">
+<div class="card">
+<h2>🫁 الصدرية والكلية</h2>
+<p>الغرف: 401 - 418</p>
+<p class="count">27 سرير</p>
+</div>
 
-import wards from "./wards.js";
+<div class="card">
+<h2>🧠 الهضمية والعصبية</h2>
+<p>السابع</p>
+<p class="count">24 سرير</p>
+</div>
 
-const container = document.getElementById("wardsContainer");
+<div class="card">
+<h2>❤️ العناية الداخلية</h2>
+<p>8 أسرّة</p>
+</div>
 
-wards.forEach((ward) => {
+<div class="card">
+<h2>❤️‍🩹 العناية القلبية</h2>
+<p>غ2 - غ10</p>
+</div>
 
-    let totalBeds = 0;
-
-    ward.rooms.forEach((room) => {
-        totalBeds += room.beds;
-    });
-
-    container.innerHTML += 
-        <div class="card">
-            <h2>🏥 ${ward.name}</h2>
-            <p>عدد الغرف: ${ward.rooms.length}</p>
-            <p class="count">🛏️ ${totalBeds} سرير</p>
-        </div>
-    ;
-});
-
-</script>
+</div>
 
 </body>
 </html>
