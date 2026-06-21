@@ -40,7 +40,30 @@ header{
 }
 </style>
 </head>
+<script type="module">
 
+import wards from "./wards.js";
+
+const container = document.getElementById("wardsContainer");
+
+wards.forEach(ward => {
+
+    let totalBeds = 0;
+
+    ward.rooms.forEach(room => {
+        totalBeds += room.beds;
+    });
+
+    container.innerHTML += 
+        <div class="card">
+            <h2>🏥 ${ward.name}</h2>
+            <p>عدد الغرف: ${ward.rooms.length}</p>
+            <p class="count">🛏️ ${totalBeds} سرير</p>
+        </div>
+    ;
+});
+
+</script>
 <body>
 
 <header>
@@ -50,11 +73,7 @@ header{
 
 <div class="grid">
 
-<div class="card">
-<h2>🫁 الصدرية والكلية</h2>
-<p>الغرف: 401 - 418</p>
-<p class="count">27 سرير</p>
-</div>
+<div class="grid" id="wardsContainer"></div>
 
 <div class="card">
 <h2>🧠 الهضمية والعصبية</h2>
