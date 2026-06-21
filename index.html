@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AUH Bed Manager</title>
+
+<style>
+
+body{
+font-family:Tahoma;
+background:#f3f7fc;
+margin:0;
+padding:20px;
+}
+
+header{
+background:#0d6efd;
+color:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.available{
+color:green;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>🏥 AUH Bed Manager</h1>
+<p>University Hospital - Internal Medicine</p>
+</header>
+
+<div class="grid">
+
+<div class="card">
+<h2>🫁 الصدرية والكلية</h2>
+<p class="available">🟢 جاري التحضير</p>
+</div>
+
+<div class="card">
+<h2>🧠 الهضمية والعصبية</h2>
+<p class="available">🟢 جاري التحضير</p>
+</div>
+
+<div class="card">
+<h2>❤️ العناية الداخلية</h2>
+<p class="available">🟢 جاري التحضير</p>
+</div>
+
+<div class="card">
+<h2>❤️‍🩹 العناية القلبية</h2>
+<p class="available">🟢 جاري التحضير</p>
+</div>
+
+</div>
+
+</body>
+</html>
