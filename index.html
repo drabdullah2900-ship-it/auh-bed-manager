@@ -14,32 +14,8 @@ body{
 }
 
 header{
-    background:#0d6efd;
-    color:white;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-}
+   <div class="grid" id="wardsContainer"></div>
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:15px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-.count{
-    color:green;
-    font-weight:bold;
-}
-</style>
-</head>
 <script type="module">
 
 import wards from "./wards.js";
@@ -61,11 +37,13 @@ wards.forEach(ward => {
             <p class="count">🛏️ ${totalBeds} سرير</p>
         </div>
     ;
+
 });
 
 </script>
-<body>
 
+</body>
+</html>
 <header>
 <h1>🏥 AUH Bed Manager</h1>
 <p>University Hospital Aleppo</p>
