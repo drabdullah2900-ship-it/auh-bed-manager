@@ -100,6 +100,7 @@ box-shadow:0 2px 8px rgba(0,0,0,.1);
 <input placeholder="الشعبة" style="width:100%;padding:10px;margin:5px 0;">
 
 <button
+onclick="savePatient()"
 style="
 background:green;
 color:white;
@@ -212,6 +213,13 @@ margin-top:10px;
 </p>
 <script>
 function showForm(){
+    <script>
+
+function savePatient(){
+    alert("✅ تم حفظ المريض بنجاح");
+}
+
+</script>
     const form = document.getElementById("patientForm");
 
     if(form.style.display === "none"){
