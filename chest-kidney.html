@@ -64,6 +64,7 @@ room.style.display = "none";
 
 <h1>🫁 جناح الصدرية والكلية</h1>
 <button
+onclick="showForm()"
 style="
 background:#0d6efd;
 color:white;
@@ -76,6 +77,41 @@ margin-bottom:20px;
 ">
 ➕ إضافة مريض
 </button>
+
+<div
+id="patientForm"
+style="
+display:none;
+background:white;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+">
+
+<h3>إضافة مريض جديد</h3>
+
+<input placeholder="اسم المريض" style="width:100%;padding:10px;margin:5px 0;">
+
+<input placeholder="التشخيص" style="width:100%;padding:10px;margin:5px 0;">
+
+<input placeholder="الأخصائي" style="width:100%;padding:10px;margin:5px 0;">
+
+<input placeholder="الشعبة" style="width:100%;padding:10px;margin:5px 0;">
+
+<button
+style="
+background:green;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+margin-top:10px;
+">
+💾 حفظ
+</button>
+
+</div>
     
 <div style="background:white;padding:15px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);">
 
@@ -174,6 +210,16 @@ margin-bottom:20px;
 <p>
 <a href="index.html">⬅️ العودة للصفحة الرئيسية</a>
 </p>
+<script>
+function showForm(){
+    const form = document.getElementById("patientForm");
 
+    if(form.style.display === "none"){
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
+</script>
 </body>
 </html>
