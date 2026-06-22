@@ -23,7 +23,43 @@ body{
 </style>
 
 </head>
+<input
+id="searchBox"
+type="text"
+placeholder="🔍 ابحث عن مريض..."
+style="
+width:100%;
+padding:12px;
+margin-bottom:20px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
+<script>
+
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("keyup", function() {
+
+const value = this.value.toLowerCase();
+
+const rooms = document.querySelectorAll(".room");
+
+rooms.forEach(room => {
+
+if(room.innerText.toLowerCase().includes(value)){
+room.style.display = "block";
+}
+else{
+room.style.display = "none";
+}
+
+});
+
+});
+
+</script>
 <body>
 
 <h1>🫁 جناح الصدرية والكلية</h1>
