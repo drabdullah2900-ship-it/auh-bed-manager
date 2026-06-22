@@ -224,11 +224,53 @@ function showForm(){
     }
 }
 
-function savePatient(){
-    alert("✅ تم حفظ المريض بنجاح");
-}
+
 
 </script>
-   
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAZL3OXsesQWTVFuFM7hiZUL8kKurjFnE8",
+  authDomain: "auh-bed-manager.firebaseapp.com",
+  projectId: "auh-bed-manager",
+  storageBucket: "auh-bed-manager.firebasestorage.app",
+  messagingSenderId: "702640248443",
+  appId: "1:702640248443:web:df5d9fd6a19f48548fb4de"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.savePatient = async function() {
+
+  const patientName = document.getElementById("patientName").value;
+  const diagnosis = document.getElementById("diagnosis").value;
+  const specialist = document.getElementById("specialist").value;
+  const division = document.getElementById("division").value;
+
+  try {
+
+    await addDoc(collection(db, "chest-kidney"), {
+      patientName,
+      diagnosis,
+      specialist,
+      division,
+      createdAt: new Date()
+    });
+
+    alert("✅ تم حفظ المريض في Firebase");
+
+  } catch (error) {
+
+    console.error(error);
+    alert("❌ فشل الحفظ");
+
+  }
+};
+
+</script>
 </body>
 </html>
