@@ -212,8 +212,17 @@ margin-top:10px;
 <a href="index.html">⬅️ العودة للصفحة الرئيسية</a>
 </p>
 <script>
+
 function showForm(){
-    <script>
+
+    const form = document.getElementById("patientForm");
+
+    if(form.style.display === "none"){
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
 
 function savePatient(){
     alert("✅ تم حفظ المريض بنجاح");
