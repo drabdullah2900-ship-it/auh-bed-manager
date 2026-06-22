@@ -229,7 +229,7 @@ function showForm(){
 </script>
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -270,7 +270,24 @@ window.savePatient = async function() {
 
   }
 };
+const patients = await getDocs(
+  collection(db, "chest-kidney")
+);
 
+patients.forEach((doc) => {
+
+  const patient = doc.data();
+
+  document.body.innerHTML += 
+    <div class="room">
+      <h2>👤 ${patient.patientName}</h2>
+      <p>📋 ${patient.diagnosis}</p>
+      <p>👨‍⚕️ ${patient.specialist}</p>
+      <p>🏥 ${patient.division}</p>
+    </div>
+  ;
+
+});
 </script>
 </body>
 </html>
