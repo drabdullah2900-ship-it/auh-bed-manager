@@ -23,6 +23,9 @@ body{
 </style>
 
 </head>
+
+<body>
+
 <input
 id="searchBox"
 type="text"
@@ -36,33 +39,8 @@ border:1px solid #ccc;
 font-size:16px;
 ">
 
-<script>
-
-const searchBox = document.getElementById("searchBox");
-
-searchBox.addEventListener("keyup", function() {
-
-const value = this.value.toLowerCase();
-
-const rooms = document.querySelectorAll(".room");
-
-rooms.forEach(room => {
-
-if(room.innerText.toLowerCase().includes(value)){
-room.style.display = "block";
-}
-else{
-room.style.display = "none";
-}
-
-});
-
-});
-
-</script>
-<body>
-
 <h1>🫁 جناح الصدرية والكلية</h1>
+
 <button
 onclick="showForm()"
 style="
@@ -98,6 +76,7 @@ box-shadow:0 2px 8px rgba(0,0,0,.1);
 <input id="specialist" placeholder="الأخصائي" style="width:100%;padding:10px;margin:5px 0;">
 
 <input id="division" placeholder="الشعبة" style="width:100%;padding:10px;margin:5px 0;">
+
 <select id="bedNumber" style="width:100%;padding:10px;margin:5px 0;">
   <option value="">اختر السرير</option>
   <option value="401-1">غرفة 401 - سرير 1</option>
@@ -120,108 +99,75 @@ margin-top:10px;
 </button>
 
 </div>
-    
-<div style="background:white;padding:15px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);">
 
+<div style="
+background:white;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+">
 <h3>📊 إحصائيات الجناح</h3>
 
-<p>🛏️ إجمالي الأسرة: 24</p>
-
+<p>🛏 إجمالي الأسرة: 24</p>
 <p>🟢 الأسرة الفارغة: 22</p>
-
 <p>🔴 الأسرة المشغولة: 2</p>
-
 </div>
+
 <div class="room">
-
 <h2>غرفة 401</h2>
-
-<div style="background:#d4edda;padding:10px;margin:5px;border-radius:8px;">
-🟢 سرير 1 - فارغ
+<p>🛏 4 أسرّة</p>
 </div>
 
-<div style="background:#f8d7da;padding:10px;margin:5px;border-radius:8px;">
-🔴 سرير 2
-
-<br><b>الاسم:</b> أحمد محمد
-<br><b>التشخيص:</b> ذات رئة
-<br><b>الأخصائي:</b> د. صلاح بوشي
-<br><b>الشعبة:</b> صدرية
-<br><b>الحالة:</b> مقيم
-<br><b>الأوكسجين:</b> 🟢 موجود
-</div>
-
-<div style="background:#d4edda;padding:10px;margin:5px;border-radius:8px;">
-🟢 سرير 3 - فارغ
-</div>
-
-<div style="background:#f8d7da;padding:10px;margin:5px;border-radius:8px;">
-🔴 سرير 4
-
-<br><b>الاسم:</b> خالد علي
-<br><b>التشخيص:</b> قصور كلوي
-<br><b>الأخصائي:</b> د. أنس شنن
-<br><b>الشعبة:</b> كلية
-<br><b>الحالة:</b> قيد التخريج
-<br><b>الأوكسجين:</b> 🔴 غير موجود
-</div>
-
-</div>
 <div class="room">
 <h2>غرفة 402</h2>
-<p>🛏️ سريران</p>
-<p>🟢 أماكن متاحة: 2</p>
+<p>🛏 سريران</p>
 </div>
 
 <div class="room">
 <h2>غرفة 403</h2>
-<p>🛏️ سريران</p>
-<p>🟢 أماكن متاحة: 2</p>
+<p>🛏 سريران</p>
 </div>
 
 <div class="room">
 <h2>غرفة 404</h2>
-<p>🛏️ سريران</p>
-<p>🟢 أماكن متاحة: 2</p>
+<p>🛏 سريران</p>
 </div>
 
 <div class="room">
 <h2>غرفة 405</h2>
-<p>🛏️ 4 أسرّة</p>
-<p>🟢 أماكن متاحة: 4</p>
+<p>🛏 4 أسرّة</p>
 </div>
 
 <div class="room">
 <h2>غرفة 407</h2>
-<p>🛏️ 4 أسرّة</p>
-<p>🟢 أماكن متاحة: 4</p>
+<p>🛏 4 أسرّة</p>
 </div>
 
 <div class="room">
 <h2>غرفة 408</h2>
-<p>🛏️ 4 أسرّة</p>
-<p>🟢 أماكن متاحة: 4</p>
+<p>🛏 4 أسرّة</p>
 </div>
 
 <div class="room">
 <h2>غرفة 412</h2>
-<p>🛏️ سرير واحد</p>
-<p>🟢 مكان متاح</p>
+<p>🛏 سرير واحد</p>
 </div>
 
 <div class="room">
 <h2>غرفة 418</h2>
-<p>🛏️ سرير واحد</p>
-<p>🟢 مكان متاح</p>
+<p>🛏 سرير واحد</p>
 </div>
+
+<div id="patientsContainer"></div>
 
 <p>
 <a href="index.html">⬅️ العودة للصفحة الرئيسية</a>
 </p>
+
 <script>
 
 function showForm(){
-
     const form = document.getElementById("patientForm");
 
     if(form.style.display === "none"){
@@ -231,13 +177,38 @@ function showForm(){
     }
 }
 
+const searchBox = document.getElementById("searchBox");
 
+searchBox.addEventListener("keyup", function(){
+
+    const value = this.value.toLowerCase();
+
+    const rooms = document.querySelectorAll(".room");
+
+    rooms.forEach(room => {
+
+        if(room.innerText.toLowerCase().includes(value)){
+            room.style.display = "block";
+        } else {
+            room.style.display = "none";
+        }
+
+    });
+
+});
 
 </script>
+
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAZL3OXsesQWTVFuFM7hiZUL8kKurjFnE8",
@@ -250,54 +221,61 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-window.savePatient = async function() {
+window.savePatient = async function(){
 
   const patientName = document.getElementById("patientName").value;
   const diagnosis = document.getElementById("diagnosis").value;
   const specialist = document.getElementById("specialist").value;
   const division = document.getElementById("division").value;
-    const bedNumber = document.getElementById("bedNumber").value;
+  const bedNumber = document.getElementById("bedNumber").value;
 
-  try {
+  try{
 
-    await addDoc(collection(db, "chest-kidney"), {
+    await addDoc(collection(db,"chest-kidney"),{
       patientName,
       diagnosis,
       specialist,
-        division,
-bedNumber,
-createdAt: new Date()
+      division,
+      bedNumber,
+      createdAt:new Date()
     });
 
-    alert("✅ تم حفظ المريض في Firebase");
+    alert("✅ تم حفظ المريض");
 
-  } catch (error) {
+    location.reload();
+
+  }catch(error){
 
     console.error(error);
     alert("❌ فشل الحفظ");
 
   }
 };
+
 const patients = await getDocs(
-  collection(db, "chest-kidney")
+collection(db,"chest-kidney")
 );
 
-patients.forEach((doc) => {
+const container =
+document.getElementById("patientsContainer");
 
-  const patient = doc.data();
+patients.forEach((doc)=>{
 
-  document.body.innerHTML += `
-  <div class="room">
-    <h2>👤 ${patient.patientName}</h2>
-    <p>📋 ${patient.diagnosis}</p>
-    <p>👨‍⚕️ ${patient.specialist}</p>
-    <p>🏥 ${patient.division}</p>
-  </div>
-` ;
-  ;
+const patient = doc.data();
+
+container.innerHTML += 
+<div class="room">
+<h2>👤 ${patient.patientName}</h2>
+<p>📋 ${patient.diagnosis}</p>
+<p>👨‍⚕️ ${patient.specialist}</p>
+<p>🏥 ${patient.division}</p>
+<p>🛏️ ${patient.bedNumber}</p>
+</div>
+;
 
 });
+
 </script>
+
 </body>
 </html>
