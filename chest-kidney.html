@@ -115,8 +115,17 @@ box-shadow:0 2px 8px rgba(0,0,0,.1);
 </div>
 
 <div class="room">
+
 <h2>غرفة 401</h2>
-<p>🛏 4 أسرّة</p>
+
+<div id="401-1">🟢 سرير 1 - فارغ</div>
+
+<div id="401-2">🟢 سرير 2 - فارغ</div>
+
+<div id="401-3">🟢 سرير 3 - فارغ</div>
+
+<div id="401-4">🟢 سرير 4 - فارغ</div>
+
 </div>
 
 <div class="room">
@@ -263,15 +272,29 @@ patients.forEach((doc)=>{
 
 const patient = doc.data();
 
-container.innerHTML += 
-<div class="room">
-<h2>👤 ${patient.patientName}</h2>
-<p>📋 ${patient.diagnosis}</p>
-<p>👨‍⚕️ ${patient.specialist}</p>
-<p>🏥 ${patient.division}</p>
-<p>🛏️ ${patient.bedNumber}</p>
-</div>
+const bed =
+document.getElementById(patient.bedNumber);
+
+if(bed){
+
+bed.innerHTML = 
+🔴 ${patient.bedNumber}
+
+<br><b>الاسم:</b> ${patient.patientName}
+
+<br><b>التشخيص:</b> ${patient.diagnosis}
+
+<br><b>الأخصائي:</b> ${patient.specialist}
+
+<br><b>الشعبة:</b> ${patient.division}
 ;
+
+bed.style.background = "#f8d7da";
+bed.style.padding = "10px";
+bed.style.margin = "5px";
+bed.style.borderRadius = "8px";
+
+}
 
 });
 
