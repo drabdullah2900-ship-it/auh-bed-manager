@@ -257,6 +257,7 @@ window.savePatient = async function() {
   const diagnosis = document.getElementById("diagnosis").value;
   const specialist = document.getElementById("specialist").value;
   const division = document.getElementById("division").value;
+    const bedNumber = document.getElementById("bedNumber").value;
 
   try {
 
@@ -264,8 +265,9 @@ window.savePatient = async function() {
       patientName,
       diagnosis,
       specialist,
-      division,
-      createdAt: new Date()
+        division,
+bedNumber,
+createdAt: new Date()
     });
 
     alert("✅ تم حفظ المريض في Firebase");
