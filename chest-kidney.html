@@ -277,7 +277,7 @@ document.getElementById(patient.bedNumber);
 
 if(bed){
 
-bed.innerHTML = 
+bed.innerHTML = `
 🔴 ${patient.bedNumber}
 
 <br><b>الاسم:</b> ${patient.patientName}
@@ -287,7 +287,7 @@ bed.innerHTML =
 <br><b>الأخصائي:</b> ${patient.specialist}
 
 <br><b>الشعبة:</b> ${patient.division}
-;
+`;
 
 bed.style.background = "#f8d7da";
 bed.style.padding = "10px";
